@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class LoadLapTime : MonoBehaviour
@@ -14,6 +15,7 @@ public class LoadLapTime : MonoBehaviour
 
     void Start()
     {
+        int sceneBuilderIndex = SceneManager.GetActiveScene().buildIndex;
         MinCount = PlayerPrefs.GetInt("MinSave");
         SecCount = PlayerPrefs.GetInt("SecSave");
         MilliCount = PlayerPrefs.GetFloat("MilliSave");
