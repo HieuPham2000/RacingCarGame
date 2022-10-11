@@ -51,7 +51,22 @@ namespace UnityStandardAssets.Vehicles.Car
         public bool Skidding { get; private set; }
         public float BrakeInput { get; private set; }
         public float CurrentSteerAngle{ get { return m_SteerAngle; }}
-        public float CurrentSpeed{ get { return m_Rigidbody.velocity.magnitude*2.23693629f; }}
+        public float CurrentSpeed
+        { 
+            get 
+            {
+                // Modified by PTHIEU 28.6.2022: Thêm try catch
+                try
+                {
+                    return m_Rigidbody.velocity.magnitude * 2.23693629f;
+                }
+                catch (Exception)
+                {
+                    return 0.0f;
+                }
+                
+            }
+        }
         public float MaxSpeed{get { return m_Topspeed; }}
         public float Revs { get; private set; }
         public float AccelInput { get; private set; }
@@ -175,22 +190,30 @@ namespace UnityStandardAssets.Vehicles.Car
 
         private void CapSpeed()
         {
-            float speed = m_Rigidbody.velocity.magnitude;
-            switch (m_SpeedType)
+            // Modified by PTHIEU 28.6.2022: Thêm try catch
+            try
             {
-                case SpeedType.MPH:
+                float speed = m_Rigidbody.velocity.magnitude;
+                switch (m_SpeedType)
+                {
+                    case SpeedType.MPH:
 
-                    speed *= 2.23693629f;
-                    if (speed > m_Topspeed)
-                        m_Rigidbody.velocity = (m_Topspeed/2.23693629f) * m_Rigidbody.velocity.normalized;
-                    break;
+                        speed *= 2.23693629f;
+                        if (speed > m_Topspeed)
+                            m_Rigidbody.velocity = (m_Topspeed / 2.23693629f) * m_Rigidbody.velocity.normalized;
+                        break;
 
-                case SpeedType.KPH:
-                    speed *= 3.6f;
-                    if (speed > m_Topspeed)
-                        m_Rigidbody.velocity = (m_Topspeed/3.6f) * m_Rigidbody.velocity.normalized;
-                    break;
+                    case SpeedType.KPH:
+                        speed *= 3.6f;
+                        if (speed > m_Topspeed)
+                            m_Rigidbody.velocity = (m_Topspeed / 3.6f) * m_Rigidbody.velocity.normalized;
+                        break;
+                }
             }
+            catch (Exception)
+            {
+            }
+            
         }
 
 
@@ -237,22 +260,30 @@ namespace UnityStandardAssets.Vehicles.Car
 
         private void SteerHelper()
         {
-            for (int i = 0; i < 4; i++)
+            // Modified by PTHIEU 28.6.2022: Thêm try catch
+            try
             {
-                WheelHit wheelhit;
-                m_WheelColliders[i].GetGroundHit(out wheelhit);
-                if (wheelhit.normal == Vector3.zero)
-                    return; // wheels arent on the ground so dont realign the rigidbody velocity
-            }
+                for (int i = 0; i < 4; i++)
+                {
+                    WheelHit wheelhit;
+                    m_WheelColliders[i].GetGroundHit(out wheelhit);
+                    if (wheelhit.normal == Vector3.zero)
+                        return; // wheels arent on the ground so dont realign the rigidbody velocity
+                }
 
-            // this if is needed to avoid gimbal lock problems that will make the car suddenly shift direction
-            if (Mathf.Abs(m_OldRotation - transform.eulerAngles.y) < 10f)
-            {
-                var turnadjust = (transform.eulerAngles.y - m_OldRotation) * m_SteerHelper;
-                Quaternion velRotation = Quaternion.AngleAxis(turnadjust, Vector3.up);
-                m_Rigidbody.velocity = velRotation * m_Rigidbody.velocity;
+                // this if is needed to avoid gimbal lock problems that will make the car suddenly shift direction
+                if (Mathf.Abs(m_OldRotation - transform.eulerAngles.y) < 10f)
+                {
+                    var turnadjust = (transform.eulerAngles.y - m_OldRotation) * m_SteerHelper;
+                    Quaternion velRotation = Quaternion.AngleAxis(turnadjust, Vector3.up);
+                    m_Rigidbody.velocity = velRotation * m_Rigidbody.velocity;
+                }
+                m_OldRotation = transform.eulerAngles.y;
             }
-            m_OldRotation = transform.eulerAngles.y;
+            catch (Exception)
+            {
+            }
+            
         }
 
 

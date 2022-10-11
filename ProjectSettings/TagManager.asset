@@ -5,6 +5,9 @@ TagManager:
   serializedVersion: 2
   tags:
   - Dreamcar01
+  - Dreamcar
+  - RaceModeAnnounce
+  - CarPos
   layers:
   - Default
   - TransparentFX

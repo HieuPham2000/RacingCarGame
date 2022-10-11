@@ -4,20 +4,29 @@ using UnityEngine;
 
 public class CarChoice : MonoBehaviour
 {
-    // 1 = red, 2 = blue
+    // 1 = red, 2 = blue, 3 = black
     public GameObject RedBody;
     public GameObject BlueBody;
+    public GameObject BlackBody;
     public int CarImport;
 
     void Start()
     {
         CarImport = GlobalCar.CarType;
-        if(CarImport == 1)
+        switch(CarImport)
         {
-            RedBody.SetActive(true);
-        } else if (CarImport == 2)
-        {
-            BlueBody.SetActive(true);
+            case (int)Enumeration.CarBodyColor.RedBody:
+                RedBody.SetActive(true);
+                break;
+            case (int)Enumeration.CarBodyColor.BlueBody:
+                BlueBody.SetActive(true);
+                break;
+            case (int)Enumeration.CarBodyColor.BlackBody:
+                BlackBody.SetActive(true);
+                break;
+            default:
+                RedBody.SetActive(true);
+                break;
         }
     }
 

@@ -7,6 +7,7 @@ public class CarControlActive : MonoBehaviour
 {
     public GameObject TheCar;
     public GameObject Dreamcar01;
+    public GameObject Dreamcar02;
     // Start is called before the first frame update
     void Start()
     {
@@ -17,6 +18,11 @@ public class CarControlActive : MonoBehaviour
         //CarAIControl01.enabled = true;
 
         TheCar.GetComponent<CarController>().enabled = true;
+        TheCar.GetComponent<CarUserControl>().enabled = true;
         Dreamcar01.GetComponent<CarAIControl>().enabled = true;
+        if(Dreamcar02)
+        {
+            Dreamcar02.GetComponent<CarAIControl>().enabled = true;
+        }
     }
 }
