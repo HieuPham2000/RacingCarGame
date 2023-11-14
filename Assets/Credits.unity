@@ -361,24 +361,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Nguyen Minh Tuan
-
-
-    Pham Trung Hieu
-
-    Pham Huu Anh Quoc
-
-
-    Nguyen
-    Dinh Hung
-
-    Pham Trung Hieu
-
-
-    Pham Trung Hieu
-
-
-    Jimmy Vegas'
+  m_Text: "Tr\u1EA7n Quang H\xE0\nPh\u1EA1m Trung Hi\u1EBFu\nNguy\u1EC5n \u0110\xECnh
+    H\xF9ng\n\nNguy\u1EC5n \u0110\xECnh H\xF9ng\nPh\u1EA1m Trung Hi\u1EBFu\n\nTr\u1EA7n
+    Quang H\xE0\n\nJimmy Vegas"
 --- !u!222 &336798100
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -458,10 +443,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Lead Developer
+  m_Text: 'Programmers
 
-
-    Programmers
 
 
 
@@ -472,8 +455,7 @@ MonoBehaviour:
     QC testers
 
 
-    Special
-    thanks'
+    Special thanks'
 --- !u!222 &439308643
 CanvasRenderer:
   m_ObjectHideFlags: 0

@@ -19,10 +19,17 @@ public class CarControlActive : MonoBehaviour
 
         TheCar.GetComponent<CarController>().enabled = true;
         TheCar.GetComponent<CarUserControl>().enabled = true;
-        Dreamcar01.GetComponent<CarAIControl>().enabled = true;
+        TheCar.GetComponent<CarAudio>().enabled = true;
+        if (Dreamcar01)
+        {
+            Dreamcar01.GetComponent<CarAIControl>().enabled = true;
+            //Dreamcar01.GetComponent<CarAudio>().enabled = true;
+        }
+        
         if(Dreamcar02)
         {
             Dreamcar02.GetComponent<CarAIControl>().enabled = true;
+            //Dreamcar02.GetComponent<CarAudio>().enabled = true;
         }
     }
 }

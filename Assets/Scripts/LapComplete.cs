@@ -17,14 +17,25 @@ public class LapComplete : MonoBehaviour
 
     public GameObject LapCounter;
     public int LapsDone;
+    public int LapsNeedDone = 1;
 
     public float RawTime;
 
     public GameObject RaceFinish;
 
+    public GameObject LapTimeManagerGameObject;
+
+    void Start()
+    {
+        if (LapTimeManagerGameObject == null)
+        {
+            LapTimeManagerGameObject = GameObject.Find("LapTimeManager");
+        }
+    }
+
     void Update()
     {
-        if(LapsDone == 1)
+        if(LapsDone == LapsNeedDone)
         {
             RaceFinish.SetActive(true);
         }
@@ -36,6 +47,11 @@ public class LapComplete : MonoBehaviour
         if (collider.gameObject.tag == "Player" || collider.gameObject.tag == "Dreamcar")
         {
             LapsDone++;
+
+            if (LapsDone == LapsNeedDone)
+            {
+                LapTimeManagerGameObject.SetActive(false);
+            }
 
             RawTime = PlayerPrefs.GetFloat("RawTime", LapTimeManager.RawTime);
             if (LapTimeManager.RawTime <= RawTime)
@@ -77,7 +93,7 @@ public class LapComplete : MonoBehaviour
             HalfLapTrig.SetActive(true);
 
             // TODO: Thử để đoạn code check ở đây
-            if (LapsDone == 1)
+            if (LapsDone == LapsNeedDone)
             {
                 RaceFinish.SetActive(true);
             }

@@ -26,4 +26,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/RaceArea03.unity
     guid: 2cdc334821f709d4b8ca2105207d8dbb
+  - enabled: 1
+    path: Assets/Help.unity
+    guid: 61316fbf85ffb6748a80c9b3d1e62381
   m_configObjects: {}

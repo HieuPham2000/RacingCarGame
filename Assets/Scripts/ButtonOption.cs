@@ -44,6 +44,11 @@ public class ButtonOption : MonoBehaviour
         SceneManager.LoadScene((int)Enumeration.SceneBuilderIndex.Credit);
     }
 
+    public void Help()
+    {
+        SceneManager.LoadScene((int)Enumeration.SceneBuilderIndex.Help);
+    }
+
     public void QuitGame()
     {
         Application.Quit();

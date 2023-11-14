@@ -383,15 +383,15 @@ MonoBehaviour:
     m_FontSize: 50
     m_FontStyle: 1
     m_BestFit: 0
-    m_MinSize: 5
-    m_MaxSize: 50
+    m_MinSize: 0
+    m_MaxSize: 70
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Computer Graphic 20212
+  m_Text: Multimedia & Game 20221
 --- !u!222 &714357311
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -435,8 +435,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.0000076294, y: 0}
-  m_SizeDelta: {x: 591.7179, y: 79.5399}
+  m_AnchoredPosition: {x: 0.0000076294, y: -92.92518}
+  m_SizeDelta: {x: 591.7179, y: 265.3902}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &807548755
 MonoBehaviour:
@@ -460,10 +460,10 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: d7cffddcbc0cc8f4ebe6e28eb9804082, type: 3}
-    m_FontSize: 70
+    m_FontSize: 30
     m_FontStyle: 1
     m_BestFit: 0
-    m_MinSize: 5
+    m_MinSize: 0
     m_MaxSize: 70
     m_Alignment: 4
     m_AlignByGeometry: 0
@@ -471,7 +471,11 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Group 4
+  m_Text: 'Tran Quang Ha
+
+    Pham Trung Hieu
+
+    Nguyen Dinh Hung'
 --- !u!222 &807548756
 CanvasRenderer:
   m_ObjectHideFlags: 0

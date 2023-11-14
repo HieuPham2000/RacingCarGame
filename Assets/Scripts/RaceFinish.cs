@@ -38,17 +38,19 @@ public class RaceFinish : MonoBehaviour
                 MyCar.SetActive(false);
                 CompleteTrig.SetActive(false);
 
+                var tmp = CarController.m_Topspeed;
                 CarController.m_Topspeed = 0.0f;
+                CarController.m_Topspeed = tmp;
 
                 MyCar.GetComponent<CarUserControl>().enabled = false;
                 MyCar.GetComponent<CarController>().enabled = false;
 
                 MyCar.SetActive(true);
 
-                FinishCam.SetActive(true);
                 // PTHIEU 28.6.2022: Tắt âm thanh
                 //collider.gameObject.GetComponent<CarAudio>().enabled = false;
                 MyCar.GetComponent<CarAudio>().enabled = false;
+                FinishCam.SetActive(true);
 
                 LevelMusic.SetActive(false);
                 ViewMode.SetActive(false);
@@ -78,7 +80,7 @@ public class RaceFinish : MonoBehaviour
 
     IEnumerator WaitAndBackToMainMenu()
     {
-        yield return new WaitForSeconds(15);
+        yield return new WaitForSeconds(10);
         SceneManager.LoadScene((int)Enumeration.SceneBuilderIndex.MainMenu);
     }
 }

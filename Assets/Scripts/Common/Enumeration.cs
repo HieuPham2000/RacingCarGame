@@ -15,7 +15,8 @@ public class Enumeration
         PlayGame = 2,
         Track01 = 4,
         Track02 = 5,
-        Track03 = 6
+        Track03 = 6,
+        Help = 7
     }
 
     // camera mode
